@@ -70,7 +70,7 @@
     return $sprintf(@"%@[%@/****]", self.class, _credential.user);
 }
 
-#if 0
+#if 1
 // If enabled, these methods would make CouchbaseLite use cookie-based login intstead of basic auth;
 // but there's not really much point in doing so, as such logins expire, which would cause trouble
 // with long-lived replications.
