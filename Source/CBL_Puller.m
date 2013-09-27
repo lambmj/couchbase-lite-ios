@@ -63,7 +63,7 @@ static NSString* joinQuotedEscaped(NSArray* strings);
     if (!_downloadsToInsert) {
         // Note: This is a ref cycle, because the block has a (retained) reference to 'self',
         // and _downloadsToInsert retains the block, and of course I retain _downloadsToInsert.
-        _downloadsToInsert = [[CBLBatcher alloc] initWithCapacity: 200 delay: 1.0
+        _downloadsToInsert = [[CBLBatcher alloc] initWithCapacity: 200 delay: 0.0
                                                   processor: ^(NSArray *downloads) {
                                                       [self insertDownloads: downloads];
                                                   }];

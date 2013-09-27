@@ -30,7 +30,7 @@
 #import "MYURLUtils.h"
 
 
-#define kProcessDelay 0.5
+#define kProcessDelay 0.0
 #define kInboxCapacity 100
 
 #define kRetryDelay 60.0
