@@ -27,6 +27,7 @@
         _capacity = capacity;
         _delay = delay;
         _processor = [block copy];
+        _originThread = [NSThread currentThread];
     }
     return self;
 }
@@ -74,6 +75,12 @@
 - (void) queueObjects: (NSArray*)objects {
     if (objects.count == 0)
         return;
+    
+    if ([NSThread currentThread] != _originThread) {
+        NSException *exception = [NSException exceptionWithName:@"IllegalStateException" reason:@"CouchbaseLite is not multi-threaded, changes detected on the wrong thread" userInfo:nil];
+        @throw exception;
+    }
+    
     if (!_inbox)
         _inbox = [[NSMutableArray alloc] init];
     [_inbox addObjectsFromArray: objects];

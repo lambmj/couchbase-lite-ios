@@ -19,6 +19,7 @@
     bool _scheduled;
     NSTimeInterval _scheduledDelay;
     void (^_processor)(NSArray*);
+    NSThread *_originThread;
 }
 
 - (instancetype) initWithCapacity: (NSUInteger)capacity
